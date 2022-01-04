@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+  - name: inputName
+    displayName: tell your name?
+    type: String
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
