@@ -12,6 +12,7 @@ pool:
 parameters:
   - name: inputName
     displayName: tell your name?
+    type: string
 
 steps:
 - script: echo Hello, world!
