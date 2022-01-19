@@ -10,7 +10,7 @@ jobs:
   displayName: Agent job 1
 
   pool:
-    vmImage: ubuntu-latest4
+    vmImage: ubuntu-18.04
   steps:
   - checkout: self
     clean: true
