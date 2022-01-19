@@ -13,7 +13,7 @@ jobs:
 - job: Job_1
   displayName: Agent job 1
   variables:
-  - PathtoPublish:
+  - path:
     ${{ if eq(variables['parameters.inputName'], 'list') }}:
      value: pod-list.yaml
     ${{ if eq(variables['parameters.inputName'], 'command') }}:
@@ -27,7 +27,7 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     inputs:
-      PathtoPublish: $(PathtoPublish)
+      PathtoPublish: $(path)
                        
 
 
