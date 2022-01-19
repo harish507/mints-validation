@@ -5,6 +5,10 @@
 
 trigger:
 - master
+parameters:
+  - name: inputName
+    displayName: tell your name?
+    type: string
 jobs:
 - job: Job_1
   displayName: Agent job 1
@@ -16,10 +20,7 @@ jobs:
      value: job-kubectl.yaml
   pool:
     vmImage: ubuntu-18.04
-parameters:
-  - name: inputName
-    displayName: tell your name?
-    type: string
+
   steps:
   - checkout: self
     clean: true
