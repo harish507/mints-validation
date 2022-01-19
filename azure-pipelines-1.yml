@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+
+  pool:
+    vmImage: ubuntu-latest4
+  steps:
+  - checkout: self
+    clean: true
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: pod-list.yaml
+parameters:
+  - name: inputName
+    displayName: tell your name?
+    type: string
+
+
