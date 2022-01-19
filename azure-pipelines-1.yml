@@ -13,11 +13,10 @@ jobs:
 - job: Job_1
   displayName: Agent job 1
   variables:
-  - path:
     ${{ if eq(variables['parameters.inputName'], 'list') }}:
-     value: pod-list.yaml
+     path: pod-list.yaml
     ${{ if eq(variables['parameters.inputName'], 'command') }}:
-     value: job-kubectl.yaml
+     path: job-kubectl.yaml
   pool:
     vmImage: ubuntu-18.04
 
