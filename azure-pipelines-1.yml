@@ -8,19 +8,26 @@ trigger:
 jobs:
 - job: Job_1
   displayName: Agent job 1
-
+  variables:
+  - PathtoPublish:
+    ${{ if eq(variables['parameters.testParam'], 'list') }}:
+     value: pod-list.yaml
+    ${{ if eq(variables['parameters.testParam'], 'command') }}:
+     value: job-kubectl.yaml
   pool:
     vmImage: ubuntu-18.04
+parameters:
+  - name: inputName
+    displayName: tell your name?
+    type: string
   steps:
   - checkout: self
     clean: true
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     inputs:
-      PathtoPublish: pod-list.yaml
-parameters:
-  - name: inputName
-    displayName: tell your name?
-    type: string
+      PathtoPublish: $(PathtoPublish)
+                       
+
 
 
