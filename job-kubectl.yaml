@@ -12,18 +12,27 @@ spec:
       containers:
       - name: tester
         image: bitnami/kubectl:1.22.3
+        env:
+          - name: JobOutputFolder
+            value: "/job/job-logs"
+        volumeMounts:
+          - mountPath: "/job/job-logs"
+            name: volume
         command:
          - "bin/bash"
          - "-c"
          - |
-           res=$(curl -s http://13.86.37.213:8181/featureTest/validateFeatureFiles | jq '. | {result}')
+           res=$(curl -s https://www.google.com | jq '. | {result}')
            ans=`echo $res| jq -r '.result'`
            if [[ $ans = "SUCCESS" ]]; then
-             kubectl get pods -n default;
+             kubectl get pods -n default > /job/job-logs/pods_list.txt
              echo "break"
-             kubectl rollout history deployment/camelapp;
-           else
+            
+            else
              echo "test cases failed"
            fi
-           
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: data-camelapp
       restartPolicy: Never
