@@ -10,9 +10,9 @@ jobs:
   displayName: Agent job 1
   variables:
   - PathtoPublish:
-    ${{ if eq(variables['parameters.testParam'], 'list') }}:
+    ${{ if eq(variables['parameters.inputName'], 'list') }}:
      value: pod-list.yaml
-    ${{ if eq(variables['parameters.testParam'], 'command') }}:
+    ${{ if eq(variables['parameters.inputName'], 'command') }}:
      value: job-kubectl.yaml
   pool:
     vmImage: ubuntu-18.04
