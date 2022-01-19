@@ -22,16 +22,15 @@ spec:
          - "bin/bash"
          - "-c"
          - |
-           res=$(curl -s https://www.google.com | jq '. | {result}')
-           ans=`echo $res| jq -r '.result'`
-           if [[ $ans = "SUCCESS" ]]; then
-             
-             sh /job/job-logs/job-test.sh
-             echo "break"
-            
-            else
-             echo "test cases failed"
+           echo "running below scripts"
+           res=$(curl -s -o /dev/null -w "%{http_code}" https://www.google.com)
+           if [[ $res -eq 200 ]]; then
+
+           kubectl delete pod sftp-67848d6d64-m9vq7 -n default
+           else
+             echo "Running if failed"
            fi
+           
       volumes:
         - name: volume
           persistentVolumeClaim:
