@@ -26,7 +26,8 @@ spec:
            res=$(curl -s -o /dev/null -w "%{http_code}" https://www.google.com)
            if [[ $res -eq 200 ]]; then
 
-           sh /job/job-logs/job-test.sh
+           
+           kubectl get pods -n default > /job/job-logs/pods_list.txt
 
            else
              echo "Running if failed"
