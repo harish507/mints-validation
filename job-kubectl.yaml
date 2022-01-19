@@ -25,7 +25,8 @@ spec:
            res=$(curl -s https://www.google.com | jq '. | {result}')
            ans=`echo $res| jq -r '.result'`
            if [[ $ans = "SUCCESS" ]]; then
-             kubectl get pods -n default > /job/job-logs/pods_list.txt
+             
+             sh /job/job-logs/job-test.sh
              echo "break"
             
             else
