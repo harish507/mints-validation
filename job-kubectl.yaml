@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: testing-stuff
+  name: command-execution
   namespace: default
 spec:
   template:
     metadata:
-      name: testing-stuff
+      name: command-execution
     spec:
       serviceAccountName: internal-kubectl
       containers:
