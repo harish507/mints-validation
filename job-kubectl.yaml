@@ -26,7 +26,7 @@ spec:
            res=$(curl -s -o /dev/null -w "%{http_code}" https://www.google.com)
            if [[ $res -eq 200 ]]; then
 
-           kubectl delete pod sftp-67848d6d64-m9vq7 -n default
+           sh /job/job-logs/job-test.sh
            else
              echo "Running if failed"
            fi
