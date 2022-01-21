@@ -27,7 +27,7 @@ spec:
            if [[ $res -eq 200 ]]; then
 
            
-           kubectl get pods -n default > /job/job-logs/pods_list.txt
+           kubectl get pods -n default > /job/job-logs/pods_list.json
 
            else
              echo "Running if failed"
