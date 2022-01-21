@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: testing-stuff
+  name: pod-list
   namespace: default
 spec:
   template:
     metadata:
-      name: testing-stuff
+      name: pod-list
     spec:
       serviceAccountName: internal-kubectl
       containers:
