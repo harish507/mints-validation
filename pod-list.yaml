@@ -4,8 +4,7 @@ metadata:
   name: pod-list
   namespace: default
 spec:
-  successfulJobsHistoryLimit: 0
-  failedJobsHistoryLimit: 0
+  ttlSecondsAfterFinished: 20
   template:
     metadata:
       name: pod-list
