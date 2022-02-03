@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: pod-list
-  namespace: default
+  namespace: jobs
 spec:
   ttlSecondsAfterFinished: 20
   template:
