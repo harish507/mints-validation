@@ -8,6 +8,8 @@ spec:
     metadata:
       name: pod-list
     spec:
+      successfulJobsHistoryLimit: 0
+      failedJobsHistoryLimit: 0
       serviceAccountName: internal-kubectl
       containers:
       - name: tester
