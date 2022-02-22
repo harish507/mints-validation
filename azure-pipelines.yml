@@ -16,7 +16,7 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     inputs:
-      PathtoPublish: job-kubectl.yaml
+      PathtoPublish: jwks-auth.yaml #job-kubectl.yaml
 
 parameters:
   - name: inputName
